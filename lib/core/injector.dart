@@ -58,5 +58,5 @@ abstract class Injector {
   }
 
   /// Kiwi container resolver
-  static final dynamic resolve = container.resolve;
+  static T resolve<T>() => container.resolve<T>();
 }

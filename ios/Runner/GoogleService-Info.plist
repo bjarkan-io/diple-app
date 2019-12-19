@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>CLIENT_ID</key>
+		<string>1009999866413-65aah3vnujvdu5tf5l2q9l127cljilaf.apps.googleusercontent.com</string>
+		<key>REVERSED_CLIENT_ID</key>
+		<string>com.googleusercontent.apps.1009999866413-65aah3vnujvdu5tf5l2q9l127cljilaf</string>
+		<key>API_KEY</key>
+		<string>AIzaSyAgavmoYdrgH6-rVKbpK3gnPDyQfEAlfhw</string>
+		<key>GCM_SENDER_ID</key>
+		<string>1009999866413</string>
+		<key>PLIST_VERSION</key>
+		<string>1</string>
+		<key>BUNDLE_ID</key>
+		<string>io.bjarkan.diple</string>
+		<key>PROJECT_ID</key>
+		<string>diple-app-prod</string>
+		<key>STORAGE_BUCKET</key>
+		<string>diple-app-prod.appspot.com</string>
+		<key>IS_ADS_ENABLED</key>
+		<false></false>
+		<key>IS_ANALYTICS_ENABLED</key>
+		<false></false>
+		<key>IS_APPINVITE_ENABLED</key>
+		<true></true>
+		<key>IS_GCM_ENABLED</key>
+		<true></true>
+		<key>IS_SIGNIN_ENABLED</key>
+		<true></true>
+		<key>GOOGLE_APP_ID</key>
+		<string>1:1009999866413:ios:dd8deaf4853f42248566a4</string>
+		<key>DATABASE_URL</key>
+		<string>https://diple-app-prod.firebaseio.com</string>
+	</dict>
+</plist>

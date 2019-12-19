@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1009999866413",
+    "firebase_url": "https://diple-app-prod.firebaseio.com",
+    "project_id": "diple-app-prod",
+    "storage_bucket": "diple-app-prod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009999866413:android:3c803cf511cf94d98566a4",
+        "android_client_info": {
+          "package_name": "io.bjarkan.diple"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1009999866413-4l0k9m02e37a5v4nv1fvb8m01gfla7f8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA95UMBp9urTCdRQUCYmZUnqc5OjnPf8dE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1009999866413-4l0k9m02e37a5v4nv1fvb8m01gfla7f8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1009999866413-65aah3vnujvdu5tf5l2q9l127cljilaf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "io.bjarkan.diple"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

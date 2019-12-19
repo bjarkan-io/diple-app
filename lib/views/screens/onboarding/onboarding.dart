@@ -1,4 +1,6 @@
+import 'package:diple/data/auth/auth.dart';
 import 'package:flutter/material.dart';
+import 'package:diple/core/core.dart';
 
 class OnboardingView extends StatelessWidget {
   @override
@@ -11,7 +13,7 @@ class OnboardingView extends StatelessWidget {
             children: [
               Center(
                 child: Text(
-                  'diple',
+                  context.bloc<AuthenticationBloc>().toString(),
                   style: TextStyle(
                     fontFamily: 'Montserrat',
                     fontSize: 32,

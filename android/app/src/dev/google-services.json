@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "904946811842",
+    "firebase_url": "https://diple-app-dev.firebaseio.com",
+    "project_id": "diple-app-dev",
+    "storage_bucket": "diple-app-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904946811842:android:0f53d2d761ccd7ad34cc5b",
+        "android_client_info": {
+          "package_name": "io.bjarkan.diple.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904946811842-88rtpdotjoehev09bam91jar83oesqmu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.bjarkan.diple.dev",
+            "certificate_hash": "e1c860f92c70095e1c944515e1d5c31a708752e9"
+          }
+        },
+        {
+          "client_id": "904946811842-bqluaihjh6sdg8o1sjjjcl1u07mpd567.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtEbi_eq3AtSzw7Skp0ZnwbKRemoF_Qx4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904946811842-bqluaihjh6sdg8o1sjjjcl1u07mpd567.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "904946811842-prg0q57j8gk8guko1t4p3p6btqv1i42n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "io.bjarkan.diple.dev"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
