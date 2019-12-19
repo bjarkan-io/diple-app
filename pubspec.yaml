@@ -38,7 +38,7 @@ dependencies:
   rxdart: ^0.23.1
   flutter_bloc: ^3.0.0-dev.1
   hydrated_bloc: ^3.0.0-dev.1
-  water: ^1.0.0+2
+  water: ^1.1.0
 
   # Models, codegen
   equatable: ^1.0.1
