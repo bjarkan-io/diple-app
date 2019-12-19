@@ -1,0 +1,69 @@
+name: diple
+description: A new Flutter project.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Dependency injection
+  kiwi: ^0.2.0
+
+  # Routing
+  fluro: ^1.5.1
+
+  # Logging
+  logger: ^0.7.0+2
+
+  # Authentication
+  firebase_auth: ^0.15.3
+  google_sign_in: ^4.1.0
+
+  # Analytics
+  firebase_analytics: ^5.0.9
+  firebase_core: ^0.4.3+1
+
+  # Icons and illustrations
+  font_awesome_flutter: ^8.5.0
+  flutter_svg: ^0.15.0
+
+  # Markdown editing
+  flutter_markdown: ^0.3.2
+
+  # State management
+  bloc: ^3.0.0-dev.1
+  rxdart: ^0.23.1
+  flutter_bloc: ^3.0.0-dev.1
+  hydrated_bloc: ^3.0.0-dev.1
+  water: ^1.0.0+2
+
+  # Models, codegen
+  equatable: ^1.0.1
+  meta: ^1.1.8
+  json_annotation: ^3.0.0
+
+  cupertino_icons: ^0.1.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  kiwi_generator: ^0.4.0
+  build_runner: ^1.7.2
+  json_serializable: ^3.2.3
+
+  # Google-style linting
+  pedantic: ^1.9.0
+
+dependency_overrides:
+  analyzer: ^0.37.1
+  pedantic: ^1.9.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
