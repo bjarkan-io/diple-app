@@ -2,7 +2,7 @@
 
 A new Flutter project.
 
-## Getting Started
+## 🚀 Getting Started
 
 **Important**: There are two flavors of the app.
 
@@ -11,7 +11,7 @@ A new Flutter project.
 
 These are made available as run configurations in VSCode ("Development" & "Production").
 
-## Tests
+## 🧪 Tests
 
 All blocs should be tested to a certain extent. All widgets considered to be a 'screen' has to incldue widget-tests as well. Tests are run with `flutter test`
 
@@ -93,7 +93,7 @@ group('LoadExample', () {
 
 And that's it. Create a new groups within the main group to test more events.
 
-## Localization & translations
+## 🌍 Localization & translations
 
 1. Install VSCode extension `ext install vscode-flutter-i18n-json`
 
