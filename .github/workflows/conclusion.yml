@@ -3,10 +3,11 @@ on: [check_run, check_suite]
 
 jobs:
   slack_build_fail:
-    if: github.event.conclusion == 'failure'
+    #if: github.event.conclusion == 'failure'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Test
+        run: echo ${{github.event}}
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@master
         env:
@@ -16,10 +17,11 @@ jobs:
           SLACK_TITLE: Build failed 🤯
 
   slack_build_success:
-    if: github.event.conclusion == 'success'
+    #if: github.event.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Test
+        run: echo ${{github.event}}
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@master
         env:
