@@ -1,5 +1,4 @@
 name: Main Pipeline
-
 on: [push]
 
 jobs:
