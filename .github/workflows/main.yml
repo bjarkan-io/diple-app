@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Slack Notification
         continue-on-error: true
-        uses: rtCamp/action-slack-notify@master
+        uses: docker://bjarkan/action-slack-notify:latest
         env:
           SLACK_COLOR: "#304ffe"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
@@ -29,7 +29,7 @@ jobs:
         run: flutter test
       - name: Slack Failure Notification
         if: failure()
-        uses: rtCamp/action-slack-notify@master
+        uses: docker://bjarkan/action-slack-notify:latest
         continue-on-error: true
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
@@ -59,7 +59,7 @@ jobs:
           path: build/app/outputs/bundle/devRelease/app-dev-release.aab
       - name: Slack Failure Notification
         if: failure()
-        uses: rtCamp/action-slack-notify@master
+        uses: docker://bjarkan/action-slack-notify:latest
         continue-on-error: true
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
@@ -86,7 +86,7 @@ jobs:
           path: build/ios/iphoneos/Runner.app
       - name: Slack Failure Notification
         if: failure()
-        uses: rtCamp/action-slack-notify@master
+        uses: docker://bjarkan/action-slack-notify:latest
         continue-on-error: true
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
@@ -101,7 +101,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Slack Success Notification
-        uses: rtCamp/action-slack-notify@master
+        uses: docker://bjarkan/action-slack-notify:latest
         continue-on-error: true
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
