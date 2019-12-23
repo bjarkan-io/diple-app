@@ -15,7 +15,7 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: GitHub Actions
           SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
-          SLACK_TITLE: "$GITHUB_SHA Build started 🚀"
+          SLACK_TITLE: "${{ GITHUB_SHA }} Build started 🚀"
   test:
     runs-on: ubuntu-latest
     steps:
@@ -36,7 +36,7 @@ jobs:
           SLACK_USERNAME: GitHub Actions
           SLACK_COLOR: "#f50057"
           SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
-          SLACK_TITLE: "$GITHUB_SHA Analysis/Tests failed 🤯"
+          SLACK_TITLE: "${{GITHUB_SHA}} Analysis/Tests failed 🤯"
           SLACK_MESSAGE: "$ flutter analyze && flutter test"
 
   build_android:
@@ -66,7 +66,7 @@ jobs:
           SLACK_USERNAME: GitHub Actions
           SLACK_COLOR: "#f50057"
           SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
-          SLACK_TITLE: "$GITHUB_SHA Android build failed 🤯"
+          SLACK_TITLE: "${{ GITHUB_SHA }} Android build failed 🤯"
           SLACK_MESSAGE: "$ flutter build appbundle --flavor dev"
 
   build_ios:
@@ -93,7 +93,7 @@ jobs:
           SLACK_USERNAME: GitHub Actions
           SLACK_COLOR: "#f50057"
           SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
-          SLACK_TITLE: "$GITHUB_SHA iOS build failed 🤯"
+          SLACK_TITLE: "${{ GITHUB_SHA }} iOS build failed 🤯"
           SLACK_MESSAGE: "$ flutter build ios --no-codesign --flavor dev"
 
   slack_build_success:
@@ -107,4 +107,4 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: GitHub Actions
           SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
-          SLACK_TITLE: "$GITHUB_SHA Build success 🎉"
+          SLACK_TITLE: "${{ GITHUB_SHA }} Build success 🎉"
