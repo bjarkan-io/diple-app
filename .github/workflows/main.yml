@@ -16,7 +16,7 @@ jobs:
           SLACK_USERNAME: GitHub Actions
           SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
           SLACK_TITLE: "Build started 🚀"
-          GITHUB_SHORT_SHA: $(echo ${GITHUB_SHA} | cut -c1-8)
+          GITHUB_SHORT_SHA: ${{ github.sha::8 }}
 
   test:
     runs-on: ubuntu-latest
@@ -40,7 +40,7 @@ jobs:
           SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
           SLACK_TITLE: "Analysis/Tests failed 🤯"
           SLACK_MESSAGE: "$ flutter analyze && flutter test"
-          GITHUB_SHORT_SHA: $(echo ${GITHUB_SHA} | cut -c1-8)
+          GITHUB_SHORT_SHA: ${{ github.sha::8 }}
 
   build_android:
     needs: test
@@ -71,7 +71,7 @@ jobs:
           SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
           SLACK_TITLE: "Android build failed 🤯"
           SLACK_MESSAGE: "$ flutter build appbundle --flavor dev"
-          GITHUB_SHORT_SHA: $(echo ${GITHUB_SHA} | cut -c1-8)
+          GITHUB_SHORT_SHA: ${{ github.sha::8 }}
 
   build_ios:
     needs: test
@@ -99,7 +99,7 @@ jobs:
           SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
           SLACK_TITLE: "iOS build failed 🤯"
           SLACK_MESSAGE: "$ flutter build ios --no-codesign --flavor dev"
-          GITHUB_SHORT_SHA: $(echo ${GITHUB_SHA} | cut -c1-8)
+          GITHUB_SHORT_SHA: ${{ github.sha::8 }}
 
   slack_build_success:
     needs: [test, build_android, build_ios]
@@ -113,4 +113,4 @@ jobs:
           SLACK_USERNAME: GitHub Actions
           SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
           SLACK_TITLE: "Build success 🎉"
-          GITHUB_SHORT_SHA: $(echo ${GITHUB_SHA} | cut -c1-8)
+          GITHUB_SHORT_SHA: ${{ github.sha::8 }}
