@@ -3,6 +3,18 @@ name: Main Pipeline
 on: [push]
 
 jobs:
+  slack_build_started:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@master
+        env:
+          SLACK_COLOR: "#304ffe"
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: GitHub Actions
+          SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
+          SLACK_TITLE: Build started 🚀
   test:
     runs-on: ubuntu-latest
     steps:
@@ -49,14 +61,3 @@ jobs:
         with:
           name: ios-archive
           path: build/ios/iphoneos/Runner.app
-
-  slack_build_success:
-    needs: [test, build_android, build_ios]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          repository: bjarkan-io/diple-app
-          event-type: build-success
