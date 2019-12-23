@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: android-archive
-          path: build/app/outputs/bundle/release/app.aab
+          path: build/app/outputs/bundle/devRelease/app-dev-release.aab
 
   build_ios:
     needs: test
