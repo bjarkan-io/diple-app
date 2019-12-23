@@ -14,6 +14,8 @@ jobs:
         run: flutter analyze
       - name: Run tests
         run: flutter test
+      - name: Notify failure
+        if: success()
 
   build_android:
     needs: test
@@ -50,13 +52,13 @@ jobs:
           name: ios-archive
           path: build/ios/iphoneos/Runner.app
 
-  notify_slack:
+  slack_build_success:
+    needs: [test, build_android, build_ios]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Slack Notification
-        uses: rtCamp/action-slack-notify@master
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_USERNAME: GitHub Actions
-          SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          repository: bjarkan-io/diple-app
+          event-type: build-success
