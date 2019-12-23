@@ -26,6 +26,16 @@ jobs:
         run: flutter analyze
       - name: Run tests
         run: flutter test
+      - name: Slack Failure Notification
+        if: failure()
+        uses: rtCamp/action-slack-notify@master
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: GitHub Actions
+          SLACK_COLOR: "#f50057"
+          SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
+          SLACK_TITLE: Analysis/Tests failed 🤯
+          SLACK_MESSAGE: "Commit: $(GITHUB_SHA)\n$ flutter analyze && flutter test"
 
   build_android:
     needs: test
@@ -45,12 +55,13 @@ jobs:
         with:
           name: android-archive
           path: build/app/outputs/bundle/devRelease/app-dev-release.aab
-      - name: Slack Notification
+      - name: Slack Failure Notification
         if: failure()
         uses: rtCamp/action-slack-notify@master
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: GitHub Actions
+          SLACK_COLOR: "#f50057"
           SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
           SLACK_TITLE: Android build failed 🤯
           SLACK_MESSAGE: "Commit: $(GITHUB_SHA)\n$ flutter build appbundle --flavor dev"
@@ -70,12 +81,13 @@ jobs:
         with:
           name: ios-archive
           path: build/ios/iphoneos/Runner.app
-      - name: Slack Notification
+      - name: Slack Failure Notification
         if: failure()
         uses: rtCamp/action-slack-notify@master
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: GitHub Actions
+          SLACK_COLOR: "#f50057"
           SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
           SLACK_TITLE: iOS build failed 🤯
           SLACK_MESSAGE: "Commit: $(GITHUB_SHA)\n$ flutter build ios --no-codesign --flavor dev"
@@ -84,7 +96,7 @@ jobs:
     needs: [test, build_android, build_ios]
     runs-on: ubuntu-latest
     steps:
-      - name: Slack Notification
+      - name: Slack Success Notification
         uses: rtCamp/action-slack-notify@master
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
