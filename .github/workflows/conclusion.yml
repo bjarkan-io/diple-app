@@ -1,9 +1,5 @@
 name: Slack Build Conclusion
-on:
-  check_run:
-    types: [completed]
-  check_suite:
-    types: [completed]
+on: [check_run, check_suite]
 
 jobs:
   slack_build_fail:
