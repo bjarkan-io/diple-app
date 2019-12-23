@@ -8,13 +8,14 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Slack Notification
+        continue-on-error: true
         uses: rtCamp/action-slack-notify@master
         env:
           SLACK_COLOR: "#304ffe"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: GitHub Actions
           SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
-          SLACK_TITLE: Build started 🚀
+          SLACK_TITLE: "$(GITHUB_SHA) Build started 🚀"
   test:
     runs-on: ubuntu-latest
     steps:
@@ -29,13 +30,14 @@ jobs:
       - name: Slack Failure Notification
         if: failure()
         uses: rtCamp/action-slack-notify@master
+        continue-on-error: true
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: GitHub Actions
           SLACK_COLOR: "#f50057"
           SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
-          SLACK_TITLE: Analysis/Tests failed 🤯
-          SLACK_MESSAGE: "Commit: $(GITHUB_SHA)\n$ flutter analyze && flutter test"
+          SLACK_TITLE: "$(GITHUB_SHA) Analysis/Tests failed 🤯"
+          SLACK_MESSAGE: "$ flutter analyze && flutter test"
 
   build_android:
     needs: test
@@ -58,13 +60,14 @@ jobs:
       - name: Slack Failure Notification
         if: failure()
         uses: rtCamp/action-slack-notify@master
+        continue-on-error: true
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: GitHub Actions
           SLACK_COLOR: "#f50057"
           SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
-          SLACK_TITLE: Android build failed 🤯
-          SLACK_MESSAGE: "Commit: $(GITHUB_SHA)\n$ flutter build appbundle --flavor dev"
+          SLACK_TITLE: "$(GITHUB_SHA) Android build failed 🤯"
+          SLACK_MESSAGE: "$ flutter build appbundle --flavor dev"
 
   build_ios:
     needs: test
@@ -84,13 +87,14 @@ jobs:
       - name: Slack Failure Notification
         if: failure()
         uses: rtCamp/action-slack-notify@master
+        continue-on-error: true
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: GitHub Actions
           SLACK_COLOR: "#f50057"
           SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
-          SLACK_TITLE: iOS build failed 🤯
-          SLACK_MESSAGE: "Commit: $(GITHUB_SHA)\n$ flutter build ios --no-codesign --flavor dev"
+          SLACK_TITLE: "$(GITHUB_SHA) iOS build failed 🤯"
+          SLACK_MESSAGE: "$ flutter build ios --no-codesign --flavor dev"
 
   slack_build_success:
     needs: [test, build_android, build_ios]
@@ -98,8 +102,9 @@ jobs:
     steps:
       - name: Slack Success Notification
         uses: rtCamp/action-slack-notify@master
+        continue-on-error: true
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: GitHub Actions
           SLACK_ICON: https://raw.githubusercontent.com/github/explore/2c7e603b797535e5ad8b4beb575ab3b7354666e1/topics/actions/actions.png
-          SLACK_TITLE: Build success 🎉
+          SLACK_TITLE: "$(GITHUB_SHA) Build success 🎉"
