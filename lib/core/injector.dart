@@ -22,7 +22,10 @@ abstract class Injector {
   @Register.factory(AppConfig, constructorName: 'prod')
   void prod();
 
-  @Register.singleton(AuthenticationBloc)
+  @Register.singleton(AuthRepository)
+  void repositories();
+
+  @Register.singleton(AuthBloc)
   void blocs();
 
   static Future<void> setup(Environment environment) async {
@@ -55,6 +58,7 @@ abstract class Injector {
     }
 
     injector.blocs();
+    injector.repositories();
   }
 
   /// Kiwi container resolver

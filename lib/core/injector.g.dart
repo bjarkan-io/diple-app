@@ -17,8 +17,14 @@ class _$Injector extends Injector {
     container.registerFactory((c) => AppConfig.prod());
   }
 
+  void repositories() {
+    final Container container = Container();
+    container.registerSingleton((c) => AuthRepository(auth: c<FirebaseAuth>()));
+  }
+
   void blocs() {
     final Container container = Container();
-    container.registerSingleton((c) => AuthenticationBloc(c<FirebaseAuth>()));
+    container.registerSingleton((c) =>
+        AuthBloc(auth: c<FirebaseAuth>(), repository: c<AuthRepository>()));
   }
 }

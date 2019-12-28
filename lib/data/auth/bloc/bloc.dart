@@ -1,3 +1,3 @@
-export 'authentication_bloc.dart';
-export 'authentication_event.dart';
-export 'authentication_state.dart';
+export 'auth_bloc.dart';
+export 'auth_event.dart';
+export 'auth_state.dart';
