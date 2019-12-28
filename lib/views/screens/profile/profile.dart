@@ -1,7 +1,10 @@
+import 'package:diple/data/auth/auth.dart';
 import 'package:diple/theme/diple.dart';
+import 'package:diple/views/components/components.dart';
 import 'package:flutter/material.dart';
+import 'package:diple/core/core.dart';
 
-class ProfileView extends StatelessWidget {
+class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,8 +29,19 @@ class ProfileView extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                Text('Image'),
-                Text('Content'),
+                Text(
+                  (context.bloc<AuthBloc>().state as Authenticated)
+                      .user
+                      .metadata
+                      .lastSignInTime
+                      .toIso8601String(),
+                ),
+                SecondaryButton(
+                  child: Text('Sign out'),
+                  onPressed: () {
+                    context.bloc<AuthBloc>().add(Deauthenticate());
+                  },
+                ),
               ],
             ),
           ),

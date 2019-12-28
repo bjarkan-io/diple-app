@@ -1,0 +1,48 @@
+{
+	"Create Equatable and JsonSerializable class": {
+		"scope": "dart",
+		"prefix": "eqs",
+		"body": [
+			"import 'package:equatable/equatable.dart';",
+			"import 'package:json_annotation/json_annotation.dart';",
+			"",
+			"part '${1:filename}.g.dart';",
+			"",
+			"@JsonSerializable()",
+			"class ${2:classname} extends Equatable {",
+			"    ${2:classname}();",
+			"",
+			"    factory ${2:classname}.fromJson(Map<String, dynamic> json) => _$${2:classname}FromJson(json);",
+			"    Map<String, dynamic> toJson() => _$${2:classname}ToJson(this);",
+			"",
+			"    @override",
+			"    List<Object> get props => [];",
+			"}"
+		]
+	},
+	"Create serializable enum": {
+		"scope": "dart",
+		"prefix": "jnm",
+		"body": [
+			"@JsonValue('${1:value}')",
+			"${2:name},"
+		]
+	},
+	"Create toString method for Bloc classes": {
+		"scope": "dart",
+		"prefix": "bts",
+		"body": [
+			"@override",
+			"String toString() => '${1:classname} { ${2:variable}: $${2:variable} }';"
+		]
+	},
+	"Create a bloc generator method": {
+		"scope": "dart",
+		"prefix": "gen",
+		"body": [
+			"Stream<${1:state}> _map${2:event}ToState(${2:event} event) async* {",
+			"",
+			"}"
+		]
+	}
+}
